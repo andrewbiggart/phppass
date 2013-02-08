@@ -1,7 +1,7 @@
 <?php
-	//////////////////////////////////////////////////////////////
-	// Function to create a random auth code
-	//////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////
+    // Function to create a random auth code
+    //////////////////////////////////////////////////////////////
     function auth_code($num) {
         //set the random id length 
         $random_id_length = $num; 
@@ -15,4 +15,4 @@
         //finally I take the first 10 characters from the $rnd_id 
         $rnd_id = substr($rnd_id,0,$random_id_length); 
         return $rnd_id;		
-	}
+    }
