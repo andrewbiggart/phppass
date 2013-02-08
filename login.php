@@ -20,7 +20,7 @@
                             
                     include("_includes/config.php");
                      
-					// Select staff details that match the authcode cookie. 
+		    // Select staff details that match the authcode cookie. 
 					        
                     $authcookie  = htmlspecialchars($_COOKIE['authcode']);
                             
@@ -36,7 +36,7 @@
                             
                     if($count==1){
     
-						// Create new authcode and update the users table.
+			// Create new authcode and update the users table.
 	
                         $new_authcode  = auth_code(30);
                         $sql2    = "UPDATE staff_newT SET staff_status = 'Logged In', staff_authcode = '$new_authcode' WHERE staff_id = '$sid'";
@@ -44,7 +44,7 @@
                                 
                         if($result2){
 							
-							// Set session / cookie variables and redirect the user.
+			    // Set session / cookie variables and redirect the user.
 							
                             session_register("uid");
                             session_register("uname");
@@ -61,14 +61,14 @@
                             } // Redirect variable isn't empty.
                             else {
 								
-								if($level == "Admin") {
-									header("location:pending.php");
-									exit();
-								} // Admin check
-								else {
-									header("location:index.php");
-									exit();
-								}
+				if($level == "Admin") {
+					header("location:pending.php");
+					exit();
+				} // Admin check
+				else {
+					header("location:index.php");
+					exit();
+				}
                             } // Redirect variable id empty.
                                     
                         }
@@ -78,7 +78,7 @@
                                 
                         include("_includes/config.php");
 						
-						// Check userid cookie against the database to see if they still have an active authcode.
+			// Check userid cookie against the database to see if they still have an active authcode.
 						
                         $uid3        = $_COOKIE['userid'];
                         $sql3        = "SELECT staff_name FROM staff_newT WHERE staff_id = '$uid3' AND staff_authcode != ''";
@@ -89,18 +89,18 @@
                             
                         if($count3 > 0) {
                             
-							// Delete authcode cookie.
-							setcookie("authcode", "", time() - 3600);
-							$sql4    = "UPDATE staff_newT SET staff_status = 'Logged Out', staff_authcode = '' WHERE staff_id = '$uid3'";
+			    // Delete authcode cookie.
+			    setcookie("authcode", "", time() - 3600);
+			    $sql4    = "UPDATE staff_newT SET staff_status = 'Logged Out', staff_authcode = '' WHERE staff_id = '$uid3'";
                             $result4 = mysql_query($sql4);
 							
-							if($result4) {
+			    if($result4) {
                             	echo "<div class=\"error rounded5 shadow\">Authentication expired for $staff_name! Please login.</div>";
-							} // User has been logged out.
+			    } // User has been logged out.
 							
                         } // User has got an active authcode, renew authcode cookiedisplay expired message.
                         else {
-							// Delete authcode cookie.
+			    // Delete authcode cookie.
                             setcookie("authcode", "", time() - 3600);
                         } // User hasn't got an active authcode, remove authcode cookie.
                                     
