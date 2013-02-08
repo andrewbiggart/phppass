@@ -7,7 +7,7 @@
 	$username = mysql_real_escape_string($username);
 	
 	$sql      = "SELECT staff_id, staff_name, staff_email FROM staff_newT WHERE staff_email='$username'";
-    $result   = mysql_query($sql);
+    	$result   = mysql_query($sql);
 	$count    = mysql_num_rows($result);
 	$row      = mysql_fetch_array($result);
 	$sid      = $row['staff_id'];
@@ -17,7 +17,7 @@
 	if($count != "0"){
 		
 		require("_includes/hashing.php");
-    	$hasher = new PasswordHash(8, false);
+    		$hasher = new PasswordHash(8, false);
 		$pass1  = auth_code(10);
 		$pass2  = $hasher->HashPassword($pass1);
 	
