@@ -8,7 +8,7 @@
 </head>
 
 <body>
-	<h1>Admin area</h1>
+    <h1>Admin area</h1>
     <p>Welcome, <?php echo $_SESSION['uname']; ?><p>
 </body>
 </html>
