@@ -1,4 +1,4 @@
-#PHP login v0.1
+#PHP login using phpass for password hashing - v0.1
 
 See live demo [here](http://andrewbiggart.co.uk/phpass).
 
@@ -12,6 +12,11 @@ Instructions to follow soon.
 
 ```
 
+```php
+<?php
+  echo "Hello";
+?>
+```
 
 ```js
 
