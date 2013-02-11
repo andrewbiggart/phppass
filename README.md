@@ -6,18 +6,20 @@ This is a custom build login / logout script built by Andrew Biggart.
 
 ##Usage
 
-Instructions to follow soon.
+Instructions are coming soon.
 
 ```html
-
+<h1>Instructions are coming soon.</h1>
 ```
 
 ```php
 <?php
-  echo "Hello";
+  echo "Instructions are coming soon.";
 ?>
 ```
 
 ```js
-
+$('body').click(function(){
+  alert('Instructions are coming soon.');  
+})
 ```
